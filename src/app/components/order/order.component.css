@@ -10,21 +10,3 @@
 	color: #fff;
 }
 
-thead tr th {
-    background-color: #333;
-    color: #fff;
-    font-weight: normal;
-}
-
-.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
-	border: 1px solid #f7f7f7;
-}
-
-.content-box {
-    background: #eee;
-    margin-bottom: 20px;
-}
-
-.pad25A {
-    padding: 25px!important;
-}

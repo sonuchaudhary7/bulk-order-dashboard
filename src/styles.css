@@ -2,7 +2,7 @@
 body {
 	padding-top: 70px;
 	padding-bottom: 20px;
-	/* background-color: #F4F5F7; */
+	background-color: #F4F5F7;
 }
 
 .pagination {
@@ -10,7 +10,7 @@ body {
 }
 
 .divider, .nav-divider, .timeline-horizontal.timeline-box:before {
-    background: #fff;
+    background: #F4F5F7;
 }
 
 .divider {
@@ -18,4 +18,68 @@ body {
     height: 1px;
     margin: 10px 0;
     padding: 0;
+}
+
+thead tr th {
+    background-color: #333;
+    color: #fff;
+    font-weight: normal;
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+	border: 1px solid #f7f7f7;
+}
+
+.content-box {
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.pad25A {
+    padding: 25px!important;
+}
+
+.invoice-client {
+    font-size: 13px;
+    text-transform: uppercase;
+    margin: 10px 0 15px;
+    font-weight: 700;
+}
+
+.mrg10T {
+    margin-top: 10px!important;
+}
+
+.invoice-client+h5+address {
+    opacity: .5;
+    line-height: 1.6em;
+}
+
+.invoice-address {
+    line-height: 2em;
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+
+.bs-label {
+    font-size: 80%;
+    line-height: 1;
+    display: inline;
+    padding: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: baseline;
+    white-space: nowrap;
+    border-radius: 2px;
+    font-weight: 700;
+}
+
+.invoice-client+.reset-ul li {
+    padding: 0 0 5px;
+}
+
+ul {
+	margin: 0;
+    padding: 0;
+    list-style: none;
 }
