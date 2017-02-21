@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="form-signin">
+		<div *ngIf="errmsg.show" class="alert alert-danger fade in alert-dismissable">
+		    {{errmsg.msg}}
+		</div>
+		<div class="heading">
+			<p class="form-signin-heading">Please login to continue</p>
+		</div>
+		<form class="form" #f="ngForm" (ngSubmit)="authUser(f.value)">
+			<label for="inputEmail" class="sr-only">Email address</label>
+			<input id="inputEmail" ngModel class="form-control" placeholder="Email address" autofocus="" type="email" name="userEmail" id="userEmail">
+
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input id="inputPassword" ngModel class="form-control" placeholder="Password" type="password" name="userPassword" id="userPassword">
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+		</form>
+	</div>
+</div>

@@ -1,0 +1,235 @@
+<app-header></app-header>
+
+<div class="container">
+	<div class="content-box pad25A">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="dummy-logo">Your Company Logo</div><address class="invoice-address">Loyola University Medical Center<br>2160 South 1st Avenue<br>Maywood, IL 60153</address></div>
+			<div class="col-sm-6 float-right text-right">
+				<h4 class="invoice-title">Bulk Order</h4>No. <b>#{{orderId}}</b>
+				<div class="divider"></div>
+				<div class="invoice-date mrg20B">5 December 2014</div>
+			</div>
+		</div>
+		<div class="divider"></div>
+		<div class="row">
+			<div class="col-md-4">
+				<h2 class="invoice-client mrg10T">Client information:</h2>
+				<h5>Jerald Mavarro</h5><address class="invoice-address">101 Harris Road<br>Kilmarnock, VA(Virginia) 22482<br>(804) 435-8000</address></div>
+			<div class="col-md-4">
+				<h2 class="invoice-client mrg10T">Order Info:</h2>
+				<ul class="reset-ul">
+					<li><b>Date:</b> December 17, 2014</li>
+					<li><b>Status:</b> <span class="bs-label label-warning">Pending</span></li>
+					<li><b>Id:</b> #474356</li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<h2 class="invoice-client mrg10T">Order Details:</h2>
+				<p>To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce.</p><br>
+				<p>Pronunciation and more common words.</p>
+			</div>
+		</div>
+		<table class="table mrg20T table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Product Name</th>
+					<th class="text-center">Quantity</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Lenovo Laptop</td>
+					<td class="text-center">1</td>
+					<td>$433.10</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Mighty Mouse</td>
+					<td class="text-center">4</td>
+					<td>$41.00</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Samsung LED TV</td>
+					<td class="text-center">1</td>
+					<td>$389.50</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>Apple iMac 27"</td>
+					<td class="text-center">1</td>
+					<td>$1999.05</td>
+				</tr>
+				<tr class="font-bold font-black">
+					<td colspan="3" class="text-right">Subtotal:</td>
+					<td colspan="3">$2312.50</td>
+				</tr>
+				<tr class="font-bold font-black">
+					<td colspan="3" class="text-right">Shipping:</td>
+					<td colspan="3">$12.20</td>
+				</tr>
+				<tr class="font-bold font-black">
+					<td colspan="3" class="text-right">Discount:</td>
+					<td colspan="3" class="font-red">$5.10</td>
+				</tr>
+				<tr class="font-bold font-black">
+					<td colspan="3" class="text-right">TOTAL:</td>
+					<td colspan="3" class="font-blue font-size-23">$2710.65</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div *ngIf="isLoading" class="text-center">
+		<p>Getting data, please wait ..</p>
+		<img width="50px" src="../../../assets/images/ring.gif">
+	</div>
+	<div *ngIf="!isLoading">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="order-numbers">
+					<h3>BulkOrder #{{orderId}}</h3>
+					<h4>Order #{{orderDetails.order_number}}</h4>
+					<h5>Ordered at: {{orderDetails.po_date}}</h5>
+				</div>
+			</div>
+		</div>
+		
+		<hr />
+		<div class="row">
+			<div class="col-md-6 shipping-address">
+				<h5>Shipping</h5>
+				<p>{{orderDetails.ship_contact.address.name}}</p>
+				<p>{{orderDetails.ship_contact.address.address1}}</p>
+				<p>{{orderDetails.ship_contact.address.address2}}</p>
+				<p>{{orderDetails.ship_contact.address.city}}, {{orderDetails.ship_contact.address.state}} {{orderDetails.ship_contact.address.country_code}} {{orderDetails.ship_contact.address.country}}</p>
+				<p> <span *ngIf="orderDetails.ship_contact.phone_number">{{orderDetails.ship_contact.phone_number}} | </span>  <span>{{orderDetails.ship_contact.email_address}}</span></p>
+			</div>
+			<div class="col-md-6 shipping-address">
+				<h5>Billing</h5>
+				<p>{{orderDetails.billing_contact.address.name}}</p>
+				<p>{{orderDetails.billing_contact.address.address1}}</p>
+				<p>{{orderDetails.billing_contact.address.address2}}</p>
+				<p><span *ngIf="orderDetails.billing_contact.address.city">{{orderDetails.billing_contact.address.city}},</span> {{orderDetails.billing_contact.address.state}} {{orderDetails.billing_contact.address.country_code}} {{orderDetails.billing_contact.address.country}}</p>
+				<p> <span *ngIf="orderDetails.billing_contact.phone_number">{{orderDetails.billing_contact.phone_number}} | </span>  <span>{{orderDetails.billing_contact.email_address}}</span></p>
+			</div>
+		</div>
+
+		<hr />
+
+		<div class="panel-group">
+	        <div class="panel panel-default">
+	            <div class="panel-heading">
+	                <h4 class="panel-title">
+	                    <a data-toggle="collapse" href="#collapseOrderPricing">Other Details</a>
+	                </h4>
+	            </div>
+	            <div id="collapseOrderPricing" class="panel-collapse collapse in">
+	                <div class="panel-body">
+	                    <div class="row">
+	                        <div class="col-xs-2"><label class="control-label">Message</label></div>
+	                        <div class="col-xs-10"><p class="form-control-static">{{orderDetails.message}}</p>
+	                        </div>
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-xs-2"><label class="control-label">Currency</label></div>
+	                        <div class="col-xs-10"><p class="form-control-static">{{orderDetails.currency}}</p>
+	                        </div>
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-xs-2"><label class="control-label">Raw File</label></div>
+	                        <div class="col-xs-10"><p class="form-control-static"><a target="_blank" href="{{orderDetails.rawFile}}">Click to download</a></p></div>
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-xs-2"><label class="control-label">Line Orders</label></div>
+	                        <div class="col-xs-10"><label>{{orderDetails.line_orders?.length}}</label></div>
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-xs-2"><label class="control-label">Status</label></div>
+	                        <div class="col-xs-10"><p class="form-control-static">{{orderDetails.status}}</p></div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+	    <h3>Line Orders</h3>
+
+	    <div class="table-responsive">
+	    	<form #f="ngForm" (ngSubmit)="markAsShipped(f.value)">
+		    	<table class="table table-striped table-bordered">
+		    		<thead>
+		    			<tr>
+		    				<th><input [checked]="isAllChecked()" (change)="checkAll($event)" type="checkbox"></th>
+		    				<th>upc_code</th>
+			    			<th>uom</th>
+			    			<th>sku</th>
+			    			<th>unit_price</th>
+			    			<th>quantity_ordered</th>
+			    			<th>quantity_shipped</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr *ngFor=" let lineOrder of orderDetails.line_orders; let j = index; ">
+		    				<td><input *ngIf=" lineOrder.quantity_ordered - lineOrder.quantity_shipped > 0 " [(ngModel)]="lineOrder.state" type="checkbox" class="multiple-checkboxes" name="{{lineOrder.po_line_num}}"></td>
+		    				<td>{{lineOrder.upc_code}}</td>
+		    				<td>{{lineOrder.uom}}</td>
+		    				<td>{{lineOrder.sku}}</td>
+		    				<td>{{lineOrder.unit_price}} {{orderDetails.currency}}</td>
+		    				<td>{{lineOrder.quantity_ordered}}</td>
+		    				<td>{{lineOrder.quantity_shipped}}</td>
+
+		    			</tr>
+		    		</tbody>
+		    	</table>
+				<button class="btn btn-default " type="submit">Mark as shipped</button>
+				<span *ngIf="!beforeDialogAlert" class="alert-danger">
+				    Please select line order(s)
+				</span>
+			</form>
+	    </div>
+
+	</div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+    	<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header navbar-inverse">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Please fill up shipping details</h4>
+			</div>
+			<form #mF="ngForm" (ngSubmit)="markShipped(mF.value)">
+				<div class="modal-body">
+					<div *ngFor=" let line_orders of line_orders_to_ship; let k = index; " class="row line-orders-modal" #divLoop>
+						<div class="col-md-12"><h4>Set values for line order #{{line_orders.line_id}}</h4></div>
+						<div class="col-md-3">
+							<label for="">Quantity Shipped</label>
+							<input required type="number" name="quantity_shipped{{line_orders.line_id}}" ngModel min="0" class="form-control">
+						</div>
+						<div class="col-md-5">
+							<label for="">Shipped by (e.g., FEDEX)</label>
+							<input required ngModel class="form-control" type="text" name="shipped_by{{line_orders.line_id}}">
+						</div>
+						<div class="col-md-4">
+							<label for="">Shipped On (yyyy-mm-dd)</label>
+							<!-- to let bootstrap detepicker working, will need to locally bind datePicker value to ngModel on blur  -->
+							<input required type='text' class="form-control datetimepicker" ngModel="{{ date | date: 'yyyy-MM-dd' }}" name="shipped_on{{line_orders.line_id}}">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Save Changes</button>
+				</div>
+			</form>
+		</div>
+      
+    </div>
+</div>

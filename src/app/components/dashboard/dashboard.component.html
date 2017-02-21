@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="container">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered" id="ordersTable" [mfData]="orders" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+          <tr>
+            <th width="20%">bulkOrderId</th>
+            <th width="30%">Order Number</th>
+            <th width="50%">PO Date (dd/MM/yyyy)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let order of mf.data; let i = index;  ">
+            <td><a [routerLink]="['/order', order.bulkOrderId]">{{order.bulkOrderId}}</a></td>
+            <td>{{order.order_number}}</td>
+            <td>{{order.po_date | date: 'dd/MM/yyyy'}}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+              <td colspan="3" style="text-align: right;">
+                <!-- demo found here https://www.npmjs.com/package/angular2-datatable -->
+                  <mfBootstrapPaginator></mfBootstrapPaginator>
+              </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+</div>
