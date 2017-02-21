@@ -101,7 +101,7 @@
 
 		    <div class="table-responsive">
 		    	<form #f="ngForm" (ngSubmit)="markAsShipped(f.value)">
-			    	<table class="table table-striped table-bordered">
+			    	<table class="table table-hover table-bordered">
 			    		<thead>
 			    			<tr>
 			    				<th><input [checked]="isAllChecked()" (change)="checkAll($event)" type="checkbox"></th>
@@ -149,7 +149,7 @@
 			<form #mF="ngForm" (ngSubmit)="markShipped(mF.value)">
 				<div class="modal-body">
 					<div *ngFor=" let line_orders of line_orders_to_ship; let k = index; " class="row line-orders-modal" #divLoop>
-						<div class="col-md-12"><h4 class="invoice-client mrg10T">Set values for line order #{{line_orders.line_id}}</h4></div>
+						<div class="col-md-12"><h3 class="invoice-client mrg10T">Set values for line order #{{line_orders.line_id}}</h3></div>
 						<div class="col-md-3">
 							<label for="">Quantity Shipped</label>
 							<input required type="number" name="quantity_shipped{{line_orders.line_id}}" ngModel min="0" class="form-control">

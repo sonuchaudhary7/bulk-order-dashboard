@@ -3,6 +3,7 @@ body {
 	padding-top: 70px;
 	padding-bottom: 20px;
 	background-color: #F4F5F7;
+	font-family: 'Lato', sans-serif;
 }
 
 .pagination {
@@ -82,4 +83,9 @@ ul {
 	margin: 0;
     padding: 0;
     list-style: none;
+}
+
+app-root loading {
+	text-align: center;
+	display: block;
 }
