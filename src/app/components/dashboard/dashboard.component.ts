@@ -14,6 +14,8 @@ import {
 export class DashboardComponent implements OnInit {
 
 	private orders
+	public sortBy = "bulkOrderId"
+    public sortOrder = "desc"
 
 	constructor(
 		private _userService: UserService,
