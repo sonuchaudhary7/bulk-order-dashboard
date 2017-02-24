@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
 	ngOnInit() {
 		this._orderService.getOrders().then(
 			data => {
+				console.log(data)
 				this.orders = data
 			}
 		)

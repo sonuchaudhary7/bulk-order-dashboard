@@ -20,6 +20,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { OrderComponent } from './components/order/order.component';
 
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { OrderComponent } from './components/order/order.component';
     FormsModule,
     HttpModule,
     routing,
-    DataTableModule
+    DataTableModule,
+    Ng2Bs3ModalModule
   ],
   providers: [appRoutingProviders, UserService, OrderService],
   bootstrap: [AppComponent],

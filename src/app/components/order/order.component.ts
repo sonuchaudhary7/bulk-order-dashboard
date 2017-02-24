@@ -1,13 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 import {
 	UserService,
 	OrderService
 } from '../../services'
-
-declare var $: any
 
 @Component({
 	selector: 'app-order',
@@ -15,6 +13,7 @@ declare var $: any
 	styleUrls: ['./order.component.css'],
 	providers: [OrderService, UserService]
 })
+
 export class OrderComponent implements OnInit {
 
 	private orderId: string
@@ -30,6 +29,10 @@ export class OrderComponent implements OnInit {
 	private markAsShippedModel: any
 
 	private date
+
+	@ViewChild('myModal')
+
+	modal: ModalComponent
 
 	constructor(
 		private _router: Router,
@@ -70,12 +73,7 @@ export class OrderComponent implements OnInit {
 
 		if(this.line_orders_to_ship.length > 0) {
 			this.beforeDialogAlert = true
-			$('#myModal').modal('toggle');
-			/* $('body').on('focus', '.datetimepicker', function() {
-				$(this).datepicker({
-					format: "yyyy-mm-dd"
-				})
-			})*/ 
+			this.modal.open()
 		}
 		else
 			this.beforeDialogAlert = false
