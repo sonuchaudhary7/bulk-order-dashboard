@@ -30,6 +30,8 @@ export class OrderComponent implements OnInit {
 
 	private date
 
+	private shippingBtnText: string = "Save Changes"
+
 	@ViewChild('myModal')
 
 	modal: ModalComponent
@@ -59,6 +61,7 @@ export class OrderComponent implements OnInit {
 	}
 
 	markAsShipped(form: any, beforeService = false) {
+		this.shippingBtnText = "Save Changes"
 		this.line_orders_to_ship = []
 		this.lineOrderAtOnce = []
 		for(let key in form) {
@@ -83,6 +86,7 @@ export class OrderComponent implements OnInit {
 
 	markShipped(form: any) {
 		// console.log(form)
+		this.shippingBtnText = "Saving Changes .."
 		this.line_orders_to_ship = []
 		for (var i = 0; i <= this.lineOrderAtOnce.length - 1; i++) {
 			this.line_orders_to_ship.push({
@@ -120,6 +124,8 @@ export class OrderComponent implements OnInit {
 		this._orderService.markLineOrderAsShipped(this.markAsShippedModel).then(
 			data => {
 				console.log(data)
+				this.shippingBtnText = "Changes Saved"
+				this.modal.close()
 			},
 			error => {
 				console.log(error)

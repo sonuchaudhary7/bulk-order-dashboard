@@ -151,7 +151,7 @@
 					<input required type="number" name="quantity_shipped{{line_orders.line_id}}" ngModel min="0" class="form-control">
 				</div>
 				<div class="col-md-5">
-					<label for="">Shipped by (e.g., FEDEX)</label>
+					<label for="">Shipped by (e.g., FedEx)</label>
 					<input required ngModel class="form-control" type="text" name="shipped_by{{line_orders.line_id}}">
 				</div>
 				<div class="col-md-4">
@@ -163,7 +163,7 @@
 		</modal-body>
 		<modal-footer>
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary">Save Changes</button>
+			<button type="submit" class="btn btn-primary">{{shippingBtnText}}</button>
 		</modal-footer>
 	</form>
 </modal>
