@@ -14,7 +14,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-
 	private loggedUser: any
 	constructor(
 		private _userService: UserService,
@@ -24,7 +23,8 @@ export class HeaderComponent implements OnInit {
 
 	ngOnInit() {
 		if(!this._userService.isLoggedIn)
-			this._router.navigate(['/'], {queryParams: {next: this._router.url}})
+			this._router.navigate(['/'])
+			// this._router.navigate(['/'], {queryParams: {next: this._router.url}})
 		this.loggedUser = this._userService.loggedUser
 	}
 
